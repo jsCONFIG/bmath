@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="keywords" content="Javascript,Math,Math增强,$bmath,刘平,BottleLiu" />
+    <meta name="description" content="Javascript,增强型Math对象,$bmath,刘平,liuping,CJS" />
+    <title>$bmath1.0.0 增强型的Math方法</title>
+    <style type="text/css">
+        .code{
+            color: #3399cc;
+            background-color: #fcfcfc;
+            border: 1px solid #cecece;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 1.2em;
+            margin: 5px;
+        }
+        .descript{
+            color: #333333;
+            line-height: 1.2em;
+            margin-left: 5px;
+        }
+        .title{
+            font-size: 14px;
+            color: #333333;
+            margin: 10px 2px;
+            font-weight: bold;
+        }
+        .code li{
+            list-style-type: decimal;
+            padding: 2px;
+        }
+        .item{
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #cecece;
+        }
+        .return,.param{
+            color: #3399cc;
+            margin: 5px;
+            font-size: 12px;
+        }
+        .return span,.param span{
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        本页面已引入了bmath-1.0.0.js文件，可直接在控制台中使用,
+        <a href="http://bottleliucdn.sinaapp.com/bmath-1.0.0.js" title="下载地址" target="_blank">$bmath下载地址</a>,更多问题可以联系我：clpliuping@126.com，或访问
+        <a href="http://weibo.com/clpliuping" target="_blank">我的微博</a>
+    </div>
+    <div class="item">
+        <div class="title">
+            1.math
+        </div>
+        <div class="descript">
+            原生Math对象，用于自由扩展
+        </div>
+        <div class="param">
+            <span>@param </span>无
+        </div>
+        <div class="return">
+            <span>@return </span>Object
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.math;</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            2.countW
+        </div>
+        <div class="descript">
+            计算两点的间的距离
+        </div>
+        <div class="param">
+            <span>@param </span>Object(两个坐标对象)
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.countW( { 'x':0,'y':0 }, { 'x':1, 'y':1 } );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            3.square
+        </div>
+        <div class="descript">
+            平方
+        </div>
+        <div class="param">
+            <span>@param </span>Number
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.square( 10 );// 100</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            4.cube
+        </div>
+        <div class="descript">
+            立方
+        </div>
+        <div class="param">
+            <span>@param </span>Number
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.cube( 10 );// 1000</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            5.sqrt
+        </div>
+        <div class="descript">
+            平方根
+        </div>
+        <div class="param">
+            <span>@param </span>Number
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.sqrt( 100 );// 10</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            6.cbrt
+        </div>
+        <div class="descript">
+            立方根
+        </div>
+        <div class="param">
+            <span>@param </span>Number
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.cbrt( 1000 );// 10</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            7.abs
+        </div>
+        <div class="descript">
+            绝对值
+        </div>
+        <div class="param">
+            <span>@param </span>Number
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.abs( -10 );// 10</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            8.pow
+        </div>
+        <div class="descript">
+            幂
+        </div>
+        <div class="param">
+            <span>@param </span>Number 幂次
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.pow( 10, 2 );// 100</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            9.min
+        </div>
+        <div class="descript">
+            最小值封装
+        </div>
+        <div class="param">
+            <span>@param </span>Array
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.min( [1,2,4,10] );// 1</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            10.max
+        </div>
+        <div class="descript">
+            最大值封装
+        </div>
+        <div class="param">
+            <span>@param </span>Array
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.max( [1,2,4,10] );// 10</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            11.cToP
+        </div>
+        <div class="descript">
+            笛卡尔(直角)坐标转化为极坐标
+        </div>
+        <div class="param">
+            <span>@param </span>Object {'x': xx, 'y': xx}
+        </div>
+        <div class="return">
+            <span>@return </span>Object {'rou': xx, 'theata': xx}
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.cToP( {'x':10, 'y':10} );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            12.cToP
+        </div>
+        <div class="descript">
+            极坐标转化为笛卡尔(直角)坐标
+        </div>
+        <div class="param">
+            <span>@param </span>Object {'rou': xx, 'theata': xx}
+        </div>
+        <div class="return">
+            <span>@return </span>Object {'x': xx, 'y': xx}
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.pToC( {'x':10, 'y':10} );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            13.lineParam
+        </div>
+        <div class="descript">
+            点构成的直线方程
+        </div>
+        <div class="param">
+            <span>@param </span>Object 两点坐标
+        </div>
+        <div class="return">
+            <span>@return </span>Object 标准直线方程的系数{A: xx, B: xx, C: xx}
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.lineParam( {'x':0, 'y':0}, {'x':10, 'y':10} );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            14.xyOnRound
+        </div>
+        <div class="descript">
+            已知某点位于圆上，已知该点的x或y坐标值，得出对应的y或x坐标
+        </div>
+        <div class="param">
+            <span>@param </span>Object 两点坐标
+        </div>
+        <div class="return">
+            <span>@return </span>Object 标准直线方程的系数{A: xx, B: xx, C: xx}
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.xyOnRound( {'x':0, 'y':0}, {'x':10, 'y':10} );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            15.pointToLineS
+        </div>
+        <div class="descript">
+            点到直线的距离
+        </div>
+        <div class="param">
+            <span>@param </span>A B C ObjectPoint, ABC为标准直线方程的系数
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.pointToLineS( A, B, C, {'x':10,'y':10} );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            16.isPointOnLine
+        </div>
+        <div class="descript">
+            检测某点是否在某两点构成的直线上
+        </div>
+        <div class="param">
+            <span>@param </span>A B C ,A为待判断点坐标对象，BC为构成直线的两点的坐标对象
+        </div>
+        <div class="return">
+            <span>@return </span>Boolean
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.isPointOnLine( A, B, C );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            17.pointRotation
+        </div>
+        <div class="descript">
+            点A绕点R自Y的正方向向X的正方向旋转r角度之后的坐标B
+        </div>
+        <div class="param">
+            <span>@param </span>A R r,AR点坐标，旋转角度r
+        </div>
+        <div class="return">
+            <span>@return </span>Object,返回旋转后的点的坐标
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.pointRotation( A, R, Math.PI );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            18.isPointInRound
+        </div>
+        <div class="descript">
+            判断某点是否在圆内
+        </div>
+        <div class="param">
+            <span>@param </span>A R r,待判断点A，圆心R坐标，半径r
+        </div>
+        <div class="return">
+            <span>@return </span>Boolean
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.isPointInRound( A, R, 10 );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            19.pointToAngle
+        </div>
+        <div class="descript">
+            三点构成的角的角度
+        </div>
+        <div class="param">
+            <span>@param </span>A B C,三点的坐标
+        </div>
+        <div class="return">
+            <span>@return </span>Number,角ABC的角度(弧度制)
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.pointToAngle( A, B, C );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            20.roundArea
+        </div>
+        <div class="descript">
+            圆的面积
+        </div>
+        <div class="param">
+            <span>@param </span>r半径
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.roundArea( 10 );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            21.isVertical
+        </div>
+        <div class="descript">
+            判断点构成的直线是否垂直
+        </div>
+        <div class="param">
+            <span>@param </span>A B C D,AB点构成的直线与CD点构成直线
+        </div>
+        <div class="return">
+            <span>@return </span>Boolean
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.isVertical( A, B, C, D );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            22.isParallel
+        </div>
+        <div class="descript">
+            判断点构成的直线是否平行
+        </div>
+        <div class="param">
+            <span>@param </span>A B C D,AB点构成的直线与CD点构成直线
+        </div>
+        <div class="return">
+            <span>@return </span>Boolean
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.isParallel( A, B, C, D );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            23.toVector
+        </div>
+        <div class="descript">
+            两点转换成向量
+        </div>
+        <div class="param">
+            <span>@param </span>A B,AB两点的坐标
+        </div>
+        <div class="return">
+            <span>@return </span>Object,向量AB
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.toVector( A, B );</li>
+            </ul>
+        </div>
+    </div>
+    <div class="item">
+        <div class="title">
+            24.vectorToAngle
+        </div>
+        <div class="descript">
+            两向量构成的夹角
+        </div>
+        <div class="param">
+            <span>@param </span>A B C D,向量AB与向量CD构成的夹角
+        </div>
+        <div class="return">
+            <span>@return </span>Number
+        </div>
+        <div class="code">
+            <ul>
+                <li>$bmath.vectorToAngle( A, B, C, D );</li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="source/bmath-1.0.0.js"></script>
+</body>
+</html>
