@@ -76,7 +76,7 @@
             return Math.min.apply( null, nums );
         }
         else {
-            return Math.min( arguments );
+            return Math.min.apply( null, arguments );
         }
     };
 
@@ -86,7 +86,7 @@
             return Math.max.apply( null, nums );
         }
         else {
-            return Math.max( arguments );
+            return Math.max.apply( null, arguments );
         }
     };
 
@@ -158,9 +158,15 @@
         return abs( A * Point.x + B * Point.y + C ) / sqrt( square(A) + square(B) )
     };
 
-    // 检测C点是否在AB点构成的直线上
-    var isPointOnLine = function ( A, B, C ) {
-        return !( (A.y - B.y) * C.x + (B.x - A.x) * C.y + A.x * B.y - A.y * B.x );
+    // 检测C点是否在AB点构成的直线上,limitRange可选，表是否为线段
+    var isPointOnLine = function ( A, B, C, limitRange ) {
+        var linearFlag = !( (A.y - B.y) * C.x + (B.x - A.x) * C.y + A.x * B.y - A.y * B.x );
+        // 如果不在直线上或未限制线段则直接返回
+        if( !linearFlag || !limitRange ){
+            return linearFlag;
+        }
+        var lineFlag = (C.x >= min( A.x, B.x ) && C.x <= max( A.x, B.x ));
+        return lineFlag;
     };
 
     // 点A围绕点R旋转r角度之后的点B坐标<自Y的正方向向X的正方向旋转>
@@ -182,8 +188,49 @@
     };
 
     // 检测某个点是否在由N个点构成的多边形内部
+    // 注意rangePointArr需保持点连线的有序性，即邻接点之间即为一条边
     var isPointInRange = function ( point, rangePointArr ) {
-        // 方案未确定
+        // 以该点为起点，向某个方向做射线(可定死为指向y轴负方向)，
+        // 如果和边的交点个数为奇数则表示在内部，
+        // 否则表示在外部
+        var px = point.x,
+            py = point.y;
+        if( rangePointArr.length < 3 ) {
+            return false;
+        }
+        var count = 0;
+        for( var i = 0, pL = rangePointArr.length; i < pL; i++ ){
+            var startP = rangePointArr[i];
+            var endP = rangePointArr[ (i+1) < pL ? (i+1) : 0 ];
+            var lineObj = lineParam( startP, endP );
+            if( lineObj.B != 0 ) {
+                // 获得相交的点
+                var cross = { 'x': px, 'y' : -( lineObj.C + lineObj.A * px ) / lineObj.B };
+                // 判断点是否在线段上
+                var onFlag = isPointOnLine( 
+                    startP,
+                    endP,
+                    point,
+                    true 
+                );
+                // 是否在指定范围
+                var rangeFlag = (cross.y <= point.y);
+                // 特殊情况，和特殊辅助线垂直的情况
+                if( cross.y == startP.y && cross.y == endP.y ) {
+                    rangeFlag = rangeFlag && ( cross.x >= min( startP.x, endP.x ) 
+                        && cross.x <= max( startP.x, endP.x ) );
+                }
+                (onFlag || rangeFlag ) && count++;
+
+            }
+            else {
+                ( !isParallel( startP, endP, point, {x:px, y:py-20 } )
+                    || py <= min( startP.y, endP.y ) )
+                    && count++;
+            }
+        }
+        console.log(count);
+        return !!(count % 2);
     };
 
     // 检测某点是否在圆内
@@ -347,9 +394,10 @@
          */
         'pointRotation'     : pointRotation,
         /**
-         * 检测某点是否在某个多边形内，(待开发)
+         * 检测某点是否在某个多边形内
+         * @param 点P 多边形的有序点数组
          */
-        // 'isPointInRange'    : isPointInRange,
+        'isPointInRange'    : isPointInRange,
         /**
          * 判断某点是否在圆内
          * @param A R r

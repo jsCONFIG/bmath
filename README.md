@@ -171,3 +171,10 @@ __24.vectorToAngle__
     @param A B C D,向量AB与向量CD构成的夹角
     @return Number
     $bmath.vectorToAngle( A, B, C, D );
+
+__25.isPointInRange__
+
+    判断某点是否在多边形内
+    @param 点P 多边形的有序点数组
+    @return Boolean
+    $bmath.isPointInRange({x:0,y:20},[{x:0,y:0},{x:0,y:10},{x:10,y:0}]);
